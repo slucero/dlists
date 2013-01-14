@@ -1,6 +1,6 @@
 <%= div_for(item) do %>
   <%= item.description %>
-  <ul class="links">
+  <ul class="actions">
     <li><%= link_to 'Edit', list_item_path(item.list, item) %></li>
     <li><%= link_to 'Destroy', list_item_path(item.list, item), :method => :delete, :confirm => 'Are you sure?' %></li>
   </ul>
