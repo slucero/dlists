@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1><%= @list.title %></h1>
-<ul class="actions">
-  <li><%= link_to 'Edit', edit_list_path(@list) %></li>
-  <li><%= link_to 'Back', lists_path %></li>
-</ul>
-
+<h1><%= @list.title %> (<%= link_to 'Edit', edit_list_path(@list) %>)</h1>
 <p>
   <%= @list.summary %>
 </p>
@@ -15,4 +10,5 @@
   <%= render @items %>
 </div>
 
-<% #render 'items/form' %>
+<h3>Create a new item</h3>
+<%= render 'items/form', :list => @list, :item => @new_item %>

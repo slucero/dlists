@@ -15,6 +15,8 @@ class ListsController < ApplicationController
   def show
     @list = List.find(params[:id])
     @items = @list.items
+    @new_item = Item.new
+    @new_item.list = @list
 
     respond_to do |format|
       format.html # show.html.erb
