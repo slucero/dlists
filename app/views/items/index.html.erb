@@ -16,7 +16,7 @@
     <td><%= item.weight %></td>
     <td><%= item.list %></td>
     <td><%= link_to 'Show', item %></td>
-    <td><%= link_to 'Edit', edit_item_path(item) %></td>
+    <td><%= link_to 'Edit', edit_list_item_path(item) %></td>
     <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
@@ -24,4 +24,4 @@
 
 <br />
 
-<%= link_to 'New Item', new_item_path %>
+<%= link_to 'New Item', new_list_item_path %>

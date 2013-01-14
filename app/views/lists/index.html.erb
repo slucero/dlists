@@ -1,19 +1,15 @@
-<h1>Listing lists</h1>
+<h1>All lists</h1>
 
 <table>
   <tr>
     <th>Title</th>
-    <th>Summary</th>
-    <th></th>
     <th></th>
     <th></th>
   </tr>
 
 <% @lists.each do |list| %>
   <tr>
-    <td><%= list.title %></td>
-    <td><%= list.summary %></td>
-    <td><%= link_to 'Show', list %></td>
+    <td><%= link_to list.title, list %></td>
     <td><%= link_to 'Edit', edit_list_path(list) %></td>
     <td><%= link_to 'Destroy', list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>

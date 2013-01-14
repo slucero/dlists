@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  before_filter :load_list
+
   # GET /items
   # GET /items.json
   def index
@@ -41,6 +43,7 @@ class ItemsController < ApplicationController
   # POST /items.json
   def create
     @item = Item.new(params[:item])
+    @item.list = @list
 
     respond_to do |format|
       if @item.save
@@ -76,8 +79,14 @@ class ItemsController < ApplicationController
     @item.destroy
 
     respond_to do |format|
-      format.html { redirect_to items_url }
+      format.html { redirect_to @list }
       format.json { head :no_content }
     end
+  end
+
+  private
+
+  def load_list
+    @list = List.find(params[:list_id])
   end
 end

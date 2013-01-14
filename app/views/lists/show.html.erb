@@ -1,15 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @list.title %>
-</p>
+<h1><%= @list.title %></h1>
+<ul class="links">
+  <li><%= link_to 'Edit', edit_list_path(@list) %></li>
+  <li><%= link_to 'Back', lists_path %></li>
+</ul>
 
 <p>
-  <b>Summary:</b>
   <%= @list.summary %>
 </p>
 
+<div id="list-items">
+  <h2>Items</h2>
+  <%= render @items %>
+</div>
 
-<%= link_to 'Edit', edit_list_path(@list) %> |
-<%= link_to 'Back', lists_path %>
+<% #render 'items/form' %>
