@@ -5,9 +5,13 @@
   <%= @list.summary %>
 </p>
 
-<div id="list-items">
+<div id="list-items-container">
   <h2>Items</h2>
-  <%= render @items %>
+  <ul class="list-items sortable">
+    <%= content_tag_for(:li, @items) do |item| %>
+      <%= render 'items/item', :list => @list, :item => item %>
+    <% end %>
+  </ul>
 </div>
 
 <h3>Create a new item</h3>
