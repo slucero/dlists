@@ -1,8 +1,8 @@
 class ItemsController < ApplicationController
   before_filter :load_list
 
-  # GET /items
-  # GET /items.json
+  # GET /list/1/items
+  # GET /list/1/items.json
   def index
     @items = Item.all
 
@@ -12,8 +12,8 @@ class ItemsController < ApplicationController
     end
   end
 
-  # GET /items/1
-  # GET /items/1.json
+  # GET /list/1/items/1
+  # GET /list/1/items/1.json
   def show
     @item = Item.find(params[:id])
 
@@ -23,8 +23,8 @@ class ItemsController < ApplicationController
     end
   end
 
-  # GET /items/new
-  # GET /items/new.json
+  # GET /list/1/items/new
+  # GET /list/1/items/new.json
   def new
     @item = Item.new
 
@@ -34,21 +34,21 @@ class ItemsController < ApplicationController
     end
   end
 
-  # GET /items/1/edit
+  # GET /list/1/items/1/edit
   def edit
     @item = Item.find(params[:id])
   end
 
-  # POST /items
-  # POST /items.json
+  # POST /list/1/items
+  # POST /list/1/items.json
   def create
     @item = Item.new(params[:item])
     @item.list = @list
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
-        format.json { render json: @item, status: :created, location: @item }
+        format.html { redirect_to list_item_path(@list, @item), notice: 'Item was successfully created.' }
+        format.json { render json: @item, status: :created, location: list_item_path(@list, @item) }
       else
         format.html { render action: "new" }
         format.json { render json: @item.errors, status: :unprocessable_entity }
@@ -56,14 +56,14 @@ class ItemsController < ApplicationController
     end
   end
 
-  # PUT /items/1
-  # PUT /items/1.json
+  # PUT /list/1/items/1
+  # PUT /list/1/items/1.json
   def update
     @item = Item.find(params[:id])
 
     respond_to do |format|
       if @item.update_attributes(params[:item])
-        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
+        format.html { redirect_to list_item_path(@list, @item), notice: 'Item was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -72,8 +72,8 @@ class ItemsController < ApplicationController
     end
   end
 
-  # DELETE /items/1
-  # DELETE /items/1.json
+  # DELETE /list/1/items/1
+  # DELETE /list/1/items/1.json
   def destroy
     @item = Item.find(params[:id])
     @item.destroy
