@@ -1,3 +1,13 @@
-// Place all the styles related to the Lists controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+#items-list {
+  list-style: none;
+  padding: 0;
+  li.item {
+    width: 100%;
+    margin: 0.5em 0;
+    padding: 0.5em;
+    background-color: #EEE;
+    .actions {
+      float: right;
+    }
+  }
+}
