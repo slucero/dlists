@@ -84,6 +84,18 @@ class ItemsController < ApplicationController
     end
   end
 
+  # POST /list/1/items/sort
+  def sort
+    @items = @list.items
+
+    @items.each do |item|
+      item.set_list_position(params[:item].index(item.id.to_s) + 1)
+      item.save()
+    end
+
+    render :nothing => true
+  end
+
   private
 
   def load_list
