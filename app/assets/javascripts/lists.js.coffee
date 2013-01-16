@@ -14,4 +14,4 @@ $(document).ready ->
         dataType: 'script'
         complete: (request) ->
           $(event.target).effect('highlight')
-        url: '/lists/1/items/sort'
+        url: location.pathname + '/items/sort'
