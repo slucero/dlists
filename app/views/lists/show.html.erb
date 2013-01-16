@@ -7,7 +7,7 @@
 
 <div id="list-items-container">
   <h2>Items</h2>
-  <ul class="list-items sortable">
+  <ul id="items-list" class="sortable">
     <%= content_tag_for(:li, @items) do |item| %>
       <%= render 'items/item', :list => @list, :item => item %>
     <% end %>
