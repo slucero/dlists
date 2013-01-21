@@ -1,8 +1,8 @@
 <% content_for :header do %>
-  <h1><%= @list.title %> (<%= link_to 'Edit', edit_list_path(@list) %>)</h1>
-  <p>
+  <h1><%= @list.title %> (<%= link_to 'Edit', edit_list_path(@list) %>)
+  <small>
     <%= @list.summary %>
-  </p>
+</small></h1>
 <% end %>
 
 <p id="notice"><%= notice %></p>
