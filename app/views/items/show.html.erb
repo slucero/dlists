@@ -1,12 +1,11 @@
-<header>
+<% content_for :header do %>
   <h1><%= link_to @list.title, @list %></h1>
-</header>
-<section id="body">
-  <p id="notice"><%= notice %></p>
-  <p>
-    <%= @item.description %>
-  </p>
+<% end %>
 
-  <%= link_to 'Edit', edit_list_item_path(@list, @item) %> |
-  <%= link_to 'Back', @list %>
-</section>
+<p id="notice"><%= notice %></p>
+<p>
+  <%= @item.description %>
+</p>
+
+<%= link_to 'Edit', edit_list_item_path(@list, @item) %> |
+<%= link_to 'Back', @list %>

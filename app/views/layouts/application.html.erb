@@ -13,6 +13,11 @@
       <li><%= link_to 'All lists', lists_path %>
     </ul>
   </navigation>
-  <%= yield %>
+  <header>
+    <%= yield :header %>
+  </header>
+  <section id="body">
+    <%= yield %>
+  </section>
 </body>
 </html>
