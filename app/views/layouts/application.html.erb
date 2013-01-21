@@ -24,7 +24,7 @@
   </header>
   <section id="body" class="container">
     <div id="body-inner" class="span8 center content">
-      <%= render 'layouts/messages' %>
+      <%= render 'shared/flash_messages', :flash => flash %>
       <%= yield %>
     </div>
   </section>
