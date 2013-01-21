@@ -7,17 +7,30 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <navigation id="primary-navigation">
-    <ul id="main-menu">
-      <li><%= link_to 'Dynamic lists', '/' %>
-      <li><%= link_to 'All lists', lists_path %>
-    </ul>
-  </navigation>
-  <header>
-    <%= yield :header %>
+  <header class="navbar navbar-inverse">
+    <nav id="primary-navigation" class="navbar-inner">
+      <div class="container">
+        <%= link_to 'Dynamic lists', '/', :class => 'brand' %>
+        <ul id="main-menu" class="nav">
+          <li><%= link_to 'All lists', lists_path %>
+        </ul>
+      </div>
+    </nav>
   </header>
-  <section id="body">
-    <%= yield %>
+  <header class="page-header">
+    <div class="page-header-inner container">
+      <%= yield :header %>
+    </div>
+  </header>
+  <section id="body" class="container">
+    <div id="body-inner" class="span8 center">
+      <%= yield %>
+    </div>
   </section>
+  <% if content_for?(:footer) %>
+    <footer>
+      <%= yield :footer %>
+    </footer>
+  <% end %>
 </body>
 </html>
