@@ -1,0 +1,4 @@
+<% markup = content_tag_for(:li, @item) do 
+  render @item
+end %>
+$('#items-list').append("<%= escape_javascript(markup) %>")

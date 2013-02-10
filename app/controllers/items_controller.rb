@@ -53,6 +53,7 @@ class ItemsController < ApplicationController
         format.html { render action: "new" }
         format.json { render json: @item.errors, status: :unprocessable_entity }
       end
+      format.js
     end
   end
 
