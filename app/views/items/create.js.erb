@@ -2,3 +2,4 @@
   render @item
 end %>
 $('#items-list').append("<%= escape_javascript(markup) %>")
+$('form#new_item').find('input:text').val('')
