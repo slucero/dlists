@@ -6,8 +6,6 @@ $(document).ready ->
     update: (event, ui) ->
       # Display the update button
       # Update the order via ajax
-      console.log(event, ui)
-      console.log($(event.target).sortable('serialize'))
       $.ajax
         type: 'post'
         data: $(event.target).sortable('serialize')
