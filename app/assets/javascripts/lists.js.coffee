@@ -15,3 +15,8 @@ $(document).ready ->
         complete: (request) ->
           $(event.target).effect('highlight')
         url: location.pathname + '/items/sort'
+
+  # Add listener for AJAX deletion
+  $('.delete-item').bind('ajax:success', () ->
+    $(this).closest('li.item').fadeOut()
+  )
