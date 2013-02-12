@@ -1,10 +1,9 @@
-<h1><%= link_to @list.title, @list %></h1>
-<p id="notice"><%= notice %></p>
-
+<% content_for :header do %>
+  <h1><%= link_to @list.title, @list %></h1>
+<% end %>
 <p>
   <%= @item.description %>
 </p>
-
 
 <%= link_to 'Edit', edit_list_item_path(@list, @item) %> |
 <%= link_to 'Back', @list %>

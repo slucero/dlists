@@ -1,20 +1,17 @@
-<p id="notice"><%= notice %></p>
+<% content_for :header do %>
+  <h1><%= @list.title %> (<%= link_to 'Edit', edit_list_path(@list) %>)
+  <small>
+    <%= @list.summary %>
+  </small></h1>
+<% end %>
 
-<article id="list-<%= @list.id %>" class="list">
-  <header>
-    <h1><%= @list.title %> (<%= link_to 'Edit', edit_list_path(@list) %>)</h1>
-    <p>
-      <%= @list.summary %>
-    </p>
-  </header>
-
-  <section id="list-items-container">
-    <ul id="items-list" class="sortable">
-      <%= content_tag_for(:li, @items) do |item| %>
-        <%= render 'items/item', :list => @list, :item => item %>
-      <% end %>
-    </ul>
-  </section>
-
-  <%= render 'items/form', :list => @list, :item => @new_item %>
-</article>
+<section id="list-items-container" class="content-list-container">
+  <ul id="items-list" class="content-list sortable">
+    <%= content_tag_for(:li, @items) do |item| %>
+      <%= render 'items/item', :list => @list, :item => item %>
+    <% end %>
+    <li class="new new-list">
+      <%= render 'items/form', :list => @list, :item => @new_item %>
+    </li>
+  </ul>
+</section>

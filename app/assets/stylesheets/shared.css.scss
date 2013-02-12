@@ -1,18 +1,4 @@
-body {
-  width: 100%;
-  height: 100%;
-  min-height: 100%;
-  text-align: center;
-
-  > * {
-    text-align: left;
-  }
-}
-
-#body {
-  max-width: 500px;
-  margin: auto;
-}
+@import 'colors';
 
 // Action links
 .actions {
@@ -23,5 +9,42 @@ body {
   }
   a {
     font-style: italic;  
+  }
+}
+
+// Content lists
+ul.content-list {
+  list-style: none;
+
+  > li {
+    margin: 0.5em 0;
+    padding: 0.5em 1em;
+    background-color: $item_bg;
+    border: solid 1px $item_border;
+    color: $item_fg;
+
+    .content-title {
+      font-weight: bold;
+    }
+
+    .content-summary {
+      margin-left: 1em;
+      font-style: italic;
+    }
+
+    footer {
+      float: right;
+
+      .content-actions {
+        list-style: none;
+        display: inline;
+        li {
+          display: inline;
+        }
+        a {
+          font-style: italic;  
+        }
+      }
+    }
   }
 }
